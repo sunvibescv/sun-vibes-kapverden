@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sun Vibes Kapverden</title>
+<meta name="description" content="Beratung für Reise, Auswanderung, Immobilien und Firmengründung auf den Kapverden. Consulting for travel, relocation and investment in Cabo Verde. Auf Deutsch, English e Português.">
+<meta name="theme-color" content="#f2c200">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!-- Link previews (WhatsApp, Facebook, LinkedIn) -->
+<link rel="canonical" href="https://sunvibescv.github.io/sun-vibes-kapverden/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sun Vibes Kapverden">
+<meta property="og:title" content="Sun Vibes Kapverden">
+<meta property="og:description" content="Authentische Kapverden-Beratung für Reisende & Investoren · Authentic Cape Verde consulting for travelers & investors">
+<meta property="og:url" content="https://sunvibescv.github.io/sun-vibes-kapverden/">
+<meta property="og:image" content="https://sunvibescv.github.io/sun-vibes-kapverden/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Layout: a sun-and-ocean hero, then an archipelago map you can click, island by island, framed by quiet text columns */
+:root {
+  --salt: #f2f5f7;        /* page ground: sea-salt white, cool */
+  --surface: #ffffff;
+  --ink: #0d2236;         /* deep Atlantic */
+  --ink-soft: #4a5d70;
+  --sun: #f2c200;         /* the accent: logo yellow */
+  --ember: #e2591f;       /* logo's orange-red rim */
+  --sun-ink: #2a1d00;     /* text on sun */
+  --sea: #1f5f8b;         /* flag blue, links + map water */
+  --lava: #2b2522;        /* Fogo basalt, used for the facts band */
+  --line: #d5dee6;
+  --water: #dce8f0;
+  --land: #e9d9b5;
+  --land-active: var(--sun);
+
+  --f-display: "Syne", "Trebuchet MS", system-ui, sans-serif;
+  --f-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2rem, 4vw, 2.75rem);
+  --step-4: clamp(2.4rem, 6.4vw, 5rem);
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1160px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --salt: #0a1824; --surface: #10212f; --ink: #e8eef3; --ink-soft: #9fb2c3;
+    --sun: #ffcf1a; --ember: #ff7a3d; --sun-ink: #2a1d00; --sea: #7fbbe3; --lava: #050d14;
+    --line: #22384a; --water: #0f2638; --land: #6b5a3a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --salt: #0a1824; --surface: #10212f; --ink: #e8eef3; --ink-soft: #9fb2c3;
+  --sun: #ffcf1a; --ember: #ff7a3d; --sun-ink: #2a1d00; --sea: #7fbbe3; --lava: #050d14;
+  --line: #22384a; --water: #0f2638; --land: #6b5a3a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  background: var(--salt); color: var(--ink);
+  font-family: var(--f-body); font-size: var(--step-0); line-height: 1.6;
+  padding-inline: var(--gutter);
+}
+.wrap { max-width: var(--max); margin-inline: auto; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1, h2 { hyphens: auto; }
+p { margin: 0; }
+a { color: var(--sea); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; }
+.brand img { height: 52px; width: auto; display: block; }
+.nav-right { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-links a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--sea); }
+.lang { display: flex; border: 1.5px solid var(--ink); border-radius: 999px; padding: 2px; gap: 2px; }
+.lang button { font: 500 0.78rem var(--f-mono); letter-spacing: .08em; color: var(--ink); background: transparent; border: 0; border-radius: 999px; padding: 5px 10px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--salt); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; font: 600 1rem var(--f-body); padding: 14px 22px; border-radius: 999px; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-sun { background: var(--sun); color: var(--sun-ink); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+
+/* Hero */
+.hero { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 56px); align-items: center; padding-block: clamp(28px, 6vw, 72px) clamp(40px, 7vw, 96px); }
+.hero h1 { font-size: var(--step-4); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--ember); background: linear-gradient(100deg, var(--sun) 0%, var(--ember) 90%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-copy { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.hero-lede { font-size: var(--step-1); color: var(--ink-soft); max-width: 36ch; }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+/* empty turquoise beach, framed as an arch */
+.hero-art { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.hero-art img { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 60%; border-radius: 999px 999px 24px 24px; display: block; }
+.coords { display: flex; justify-content: space-between; gap: 12px; font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-soft); }
+
+/* About */
+.about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(24px, 5vw, 64px); align-items: start; }
+.about-text { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.about-text h2 { font-size: var(--step-3); }
+.about-text p { color: var(--ink-soft); max-width: 58ch; }
+.about-text .mission { color: var(--ink); font-weight: 500; font-size: var(--step-1); line-height: 1.45; border-left: 4px solid var(--ember); padding-left: 18px; }
+.why { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.why h3 { font-size: var(--step-1); }
+.why ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.why li { padding-block: 12px; border-top: 1px solid var(--line); display: flex; gap: 12px; align-items: baseline; }
+.why li::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg, var(--sun), var(--ember)); transform: translateY(-1px); }
+
+/* Island photos */
+.island-photos { display: grid; gap: 8px; margin: -8px -8px 4px; }
+.island-photos.two { grid-template-columns: 1fr 1fr; }
+.island-photos img { width: 100%; max-width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; display: block; }
+.island-photos.two img { aspect-ratio: 3 / 4; }
+
+/* Morabeza: cave-view photo band, always dark */
+.morabeza-band { position: relative; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); padding-block: clamp(80px, 14vw, 160px); background: #14181c url("img/cave.jpg") center 55% / cover no-repeat; color: #fff6ea; }
+.morabeza-band::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,8,20,.15), rgba(10,8,20,.55)); }
+.morabeza-band .wrap { position: relative; }
+.morabeza-band p { font-family: var(--f-display); font-weight: 800; font-size: clamp(3rem, 10vw, 7rem); line-height: 1; letter-spacing: -0.02em; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+.morabeza-band small { display: block; font-family: var(--f-body); font-weight: 500; font-size: var(--step-1); line-height: 1.5; letter-spacing: 0; margin-top: 20px; max-width: 44ch; color: #fff6ea; }
+
+/* Services */
+section { padding-block: clamp(48px, 8vw, 96px); }
+.sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-bottom: 40px; }
+.sec-head h2 { font-size: var(--step-3); font-weight: 700; }
+.sec-head p { color: var(--ink-soft); max-width: 46ch; }
+.services { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
+.svc { padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid var(--line); min-width: 0; }
+.svc:first-child { padding-left: 0; }
+.svc:last-child { border-right: 0; }
+.svc h3 { font-size: var(--step-1); font-weight: 700; hyphens: auto; }
+.svc p { color: var(--ink-soft); font-size: 0.97rem; }
+.svc ul { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.92rem; }
+.svc li::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--sun); margin-right: 10px; vertical-align: 2px; }
+
+/* Islands */
+.islands { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: start; }
+.map-box { background: var(--water); border-radius: 20px; padding: 12px; min-width: 0; }
+.map-box svg { width: 100%; height: auto; display: block; }
+.isl { cursor: pointer; }
+.isl circle { fill: var(--land); stroke: var(--ink); stroke-opacity: .25; stroke-width: 1.5; transition: fill .2s ease, transform .2s ease; transform-box: fill-box; transform-origin: center; }
+.isl text { font-family: var(--f-mono); font-size: 13px; fill: var(--ink); pointer-events: none; }
+.isl:hover circle, .isl:focus-visible circle { transform: scale(1.08); }
+.isl[aria-pressed="true"] circle { fill: var(--land-active); stroke-opacity: .7; }
+.isl:focus-visible { outline: none; }
+.isl:focus-visible circle { stroke: var(--sun); stroke-opacity: 1; stroke-width: 3; }
+.map-legend { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 8px 2px; font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-soft); }
+.island-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.island-card h3 { font-size: var(--step-2); font-weight: 800; }
+.island-card .tag { align-self: flex-start; font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: .08em; text-transform: uppercase; background: var(--sun); color: var(--sun-ink); padding: 4px 10px; border-radius: 999px; }
+.island-card dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 0; font-size: 0.93rem; }
+.island-card dt { font-family: var(--f-mono); font-size: 0.78rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .06em; padding-top: 2px; }
+.island-card dd { margin: 0; font-variant-numeric: tabular-nums; }
+.island-card p { color: var(--ink-soft); }
+.island-card .btn { align-self: flex-start; }
+
+/* Process */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step-n { font-family: var(--f-display); font-weight: 800; font-size: 3.5rem; line-height: 1; color: var(--ember); }
+.step h3 { font-size: var(--step-1); }
+.step p { color: var(--ink-soft); }
+.step .when { font-family: var(--f-mono); font-size: 0.8rem; color: var(--sea); }
+
+/* Facts band: always dark basalt */
+.facts { background: var(--lava); color: #f2ede6; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+.facts .eyebrow { color: #b9b0a6; }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 28px; }
+.fact { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #5a4f48; padding-top: 16px; }
+.fact b { font-family: var(--f-display); font-size: var(--step-2); font-weight: 700; color: #ffc42e; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 0.93rem; color: #d8d0c6; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(24px, 5vw, 64px); align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.contact-info h2 { font-size: var(--step-3); }
+.contact-info p { color: var(--ink-soft); max-width: 42ch; }
+.contact-lines { display: flex; flex-direction: column; gap: 12px; font-family: var(--f-mono); font-size: 0.92rem; }
+.cline { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
+.cline .k { color: var(--ink-soft); width: 96px; flex: none; }
+.cline .v { overflow-wrap: anywhere; user-select: all; }
+.cline a.v { user-select: text; }
+.copy { font: 500 0.72rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }
+.copy:hover { border-color: var(--ink); }
+form { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(20px, 3vw, 32px); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-width: 0; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label { font-size: 0.85rem; font-weight: 600; }
+input, select, textarea { font: inherit; color: var(--ink); background: var(--salt); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; width: 100%; }
+textarea { min-height: 110px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--sun); outline-offset: 1px; }
+.form-note { grid-column: 1 / -1; font-size: 0.9rem; color: var(--ink-soft); }
+.form-ok { grid-column: 1 / -1; background: color-mix(in srgb, var(--sun) 22%, var(--surface)); border-radius: 10px; padding: 14px 16px; font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 0.88rem; color: var(--ink-soft); }
+footer img { height: 72px; width: auto; display: block; }
+.foot-meta { display: flex; flex-direction: column; gap: 4px; text-align: right; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero, .islands, .contact, .sec-head, .about { grid-template-columns: 1fr; }
+  .hero-art { max-width: 400px; width: 100%; justify-self: center; }
+  .foot-meta { text-align: left; }
+  .services { grid-template-columns: 1fr 1fr; }
+  .svc, .svc:first-child { border-right: 0; padding-left: 0; border-bottom: 1px solid var(--line); }
+  .facts-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 560px) {
+  .services, .facts-grid, form { grid-template-columns: 1fr; }
+  .nav-links { gap: 14px; }
+  .brand img { height: 42px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="#top" id="top"><img src="img/logo-wide.png" alt="Sun Vibes Kapverden" width="720" height="249"></a>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Main">
+        <a href="#services" data-i18n="nav.services">Leistungen</a>
+        <a href="#about" data-i18n="nav.about">Über uns</a>
+        <a href="#islands" data-i18n="nav.islands">Inseln</a>
+        <a href="#process" data-i18n="nav.process">So funktioniert's</a>
+        <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Sprache / Language / Língua">
+        <button type="button" id="lang-de" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
+        <button type="button" id="lang-en" data-lang="en" lang="en" aria-label="English">EN</button>
+        <button type="button" id="lang-pt" data-lang="pt" lang="pt" aria-label="Português">PT</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow" data-i18n="hero.eyebrow"></span>
+      <h1 data-i18n-html="hero.title"></h1>
+      <p class="hero-lede" data-i18n="hero.lede"></p>
+      <div class="hero-ctas">
+        <a class="btn btn-sun" href="#contact" data-i18n="hero.cta1"></a>
+        <a class="btn btn-ghost" href="#islands" data-i18n="hero.cta2"></a>
+      </div>
+    </div>
+    <figure class="hero-art" style="margin:0">
+      <img src="img/hero-beach.jpg" alt="" data-i18n-alt="hero.alt" width="736" height="981">
+      <figcaption class="coords"><span>16°00′N · 24°00′W</span><span>Cabo Verde</span></figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="svc.title"></h2>
+      <p data-i18n="svc.intro"></p>
+    </div>
+    <div class="services">
+      <article class="svc">
+        <h3 data-i18n="svc1.t"></h3>
+        <p data-i18n="svc1.p"></p>
+        <ul><li data-i18n="svc1.a"></li><li data-i18n="svc1.b"></li><li data-i18n="svc1.c"></li></ul>
+      </article>
+      <article class="svc">
+        <h3 data-i18n="svc2.t"></h3>
+        <p data-i18n="svc2.p"></p>
+        <ul><li data-i18n="svc2.a"></li><li data-i18n="svc2.b"></li><li data-i18n="svc2.c"></li></ul>
+      </article>
+      <article class="svc">
+        <h3 data-i18n="svc3.t"></h3>
+        <p data-i18n="svc3.p"></p>
+        <ul><li data-i18n="svc3.a"></li><li data-i18n="svc3.b"></li><li data-i18n="svc3.c"></li></ul>
+      </article>
+      <article class="svc">
+        <h3 data-i18n="svc4.t"></h3>
+        <p data-i18n="svc4.p"></p>
+        <ul><li data-i18n="svc4.a"></li><li data-i18n="svc4.b"></li><li data-i18n="svc4.c"></li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="about-text">
+      <span class="eyebrow" data-i18n="about.eyebrow"></span>
+      <h2 data-i18n="about.title"></h2>
+      <p data-i18n="about.p"></p>
+      <p class="mission" data-i18n="about.mission"></p>
+    </div>
+    <div class="why">
+      <h3 data-i18n="why.title"></h3>
+      <ul>
+        <li data-i18n="why.1"></li>
+        <li data-i18n="why.2"></li>
+        <li data-i18n="why.3"></li>
+        <li data-i18n="why.4"></li>
+        <li data-i18n="why.5"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="islands">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="isl.title"></h2>
+      <p data-i18n="isl.intro"></p>
+    </div>
+    <div class="islands">
+      <div class="map-box">
+        <svg id="map" viewBox="0 0 640 540" role="group" aria-label="Cabo Verde"></svg>
+        <div class="map-legend"><span data-i18n="isl.north"></span><span data-i18n="isl.south"></span></div>
+      </div>
+      <article class="island-card" id="card" aria-live="polite"></article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="proc.title"></h2>
+      <p data-i18n="proc.intro"></p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">1</span>
+        <h3 data-i18n="s1.t"></h3>
+        <p data-i18n="s1.p"></p>
+        <span class="when" data-i18n="s1.w"></span>
+      </div>
+      <div class="step">
+        <span class="step-n">2</span>
+        <h3 data-i18n="s2.t"></h3>
+        <p data-i18n="s2.p"></p>
+        <span class="when" data-i18n="s2.w"></span>
+      </div>
+      <div class="step">
+        <span class="step-n">3</span>
+        <h3 data-i18n="s3.t"></h3>
+        <p data-i18n="s3.p"></p>
+        <span class="when" data-i18n="s3.w"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="facts.title"></span>
+    <div class="facts-grid">
+      <div class="fact"><b>350+</b><span data-i18n="f1"></span></div>
+      <div class="fact"><b data-i18n="f2.v"></b><span data-i18n="f2"></span></div>
+      <div class="fact"><b data-i18n="f3.v"></b><span data-i18n="f3"></span></div>
+      <div class="fact"><b>UTC −1</b><span data-i18n="f4"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="morabeza-band" aria-label="Morabeza">
+  <div class="wrap">
+    <p>Morabeza.<small data-i18n="morabeza"></small></p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="contact-info">
+      <span class="eyebrow" data-i18n="c.eyebrow"></span>
+      <h2 data-i18n="c.title"></h2>
+      <p data-i18n="c.intro"></p>
+      <div class="contact-lines">
+        <div class="cline"><span class="k" data-i18n="c.email"></span><span class="v" id="email-v">sun_vibesCV@proton.me</span><button type="button" class="copy" id="copy-email" data-copy="sun_vibesCV@proton.me" data-i18n="c.copy"></button></div>
+        <div class="cline"><span class="k">WhatsApp</span><a class="v" href="https://wa.me/436606918880" target="_blank" rel="noopener">+43 660 6918880</a><button type="button" class="copy" id="copy-wa" data-copy="+436606918880" data-i18n="c.copy"></button></div>
+        <div class="cline"><span class="k" data-i18n="c.office"></span><span class="v">Santa Maria, Sal, Cabo Verde</span></div>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="field"><label for="f-name" data-i18n="form.name"></label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-email" data-i18n="form.email"></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-topic" data-i18n="form.topic"></label>
+        <select id="f-topic" name="topic">
+          <option value="travel" data-i18n="svc1.t"></option>
+          <option value="relocation" data-i18n="svc2.t"></option>
+          <option value="property" data-i18n="svc3.t"></option>
+          <option value="business" data-i18n="svc4.t"></option>
+          <option value="unsure" data-i18n="form.unsure"></option>
+        </select>
+      </div>
+      <div class="field"><label for="f-island" data-i18n="form.island"></label>
+        <select id="f-island" name="island"><option value="" data-i18n="form.undecided"></option></select>
+      </div>
+      <div class="field full"><label for="f-msg" data-i18n="form.msg"></label><textarea id="f-msg" name="message" data-i18n-ph="form.ph"></textarea></div>
+      <div class="field full"><button class="btn btn-sun" type="submit" data-i18n="form.send"></button></div>
+      <div class="form-note" id="form-note"><span data-i18n="form.note"></span> <a href="privacy.html" data-i18n="privacy"></a></div>
+    </form>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <img src="img/logo-stacked.png" alt="Sun Vibes Kapverden" width="600" height="590">
+    <div class="foot-meta">
+      <span data-i18n="footer"></span>
+      <span>© 2026 Sun Vibes Kapverden · <a href="privacy.html" data-i18n="privacy"></a></span>
+    </div>
+  </footer>
+</div>
+
+<script>
+const EMAIL = "sun_vibesCV@proton.me";
+const WA = "436606918880";
+
+const T = {
+  de: {
+    "nav.services": "Leistungen", "nav.about": "Über uns", "nav.islands": "Inseln", "nav.process": "So funktioniert's", "nav.contact": "Kontakt",
+    "hero.eyebrow": "Beratung für die Kapverden · Cabo Verde · Cape Verde",
+    "hero.title": "Authentische Kapverden-Beratung für <em>Reisende &amp; Investoren</em>",
+    "hero.lede": "Persönliche Reiserouten, echtes Insiderwissen und verlässliche Business-Beratung für die Inseln von Cabo Verde.",
+    "hero.cta1": "Kostenloses 20-Minuten-Gespräch", "hero.cta2": "Inseln entdecken",
+    "hero.alt": "Menschenleerer Sandstrand mit klarem, türkisfarbenem Wasser unter blauem Himmel",
+    "about.eyebrow": "Über uns", "about.title": "Kapverdische Wurzeln, Zuhause in Österreich",
+    "about.p": "Sun Vibes Kapverden verbindet Menschen mit dem wahren Geist der Kapverden. Mit kapverdischer Herkunft und einem Zuhause in Österreich verbinden wir kulturelles Insiderwissen, professionelle Beratung und echte Leidenschaft für die Inseln.",
+    "about.mission": "Unsere Mission: verlässliche, persönliche und kulturell verwurzelte Begleitung für Reisende und Investoren.",
+    "why.title": "Warum Sun Vibes",
+    "why.1": "Kapverdisches Kulturwissen aus erster Hand", "why.2": "Beratung auf Deutsch, Englisch und Portugiesisch",
+    "why.3": "Professionelle Arbeitsweise", "why.4": "Keine Standardtipps, alles ist persönlich",
+    "why.5": "Fokus auf Sicherheit, Authentizität und echte Erlebnisse",
+    "svc.title": "Wobei wir Ihnen helfen",
+    "svc.intro": "Ob zwei Wochen Sonne oder ein neues Leben auf den Inseln: Wir machen aus Ihrem Plan konkrete Schritte und bleiben an Ihrer Seite, bis alles läuft.",
+    "svc1.t": "Reiseplanung", "svc1.p": "Inselhopping-Routen, die zu Ihnen passen, von Kite-Stränden bis zu Vulkanwanderungen. Auf Wunsch mit persönlichem Videocall.",
+    "svc1.a": "Individuelle Reiseroute als PDF", "svc1.b": "Unterkunfts- & Transporttipps", "svc1.c": "Sicherheits- & Kulturtipps",
+    "svc2.t": "Auswanderung", "svc2.p": "Umzug nach Cabo Verde für den Ruhestand, Remote-Arbeit oder mit der Familie.",
+    "svc2.a": "Aufenthaltsgenehmigung", "svc2.b": "NIF-Steuernummer & Bankkonto", "svc2.c": "Wohnung & Schulen",
+    "svc3.t": "Immobilien & Investition", "svc3.p": "Grundstück oder Wohnung sicher kaufen, mit Prüfung vor der Unterschrift.",
+    "svc3.a": "Standortsuche", "svc3.b": "Grundbuch- & Eigentumsprüfung", "svc3.c": "Geprüfte Anwälte & Baufirmen",
+    "svc4.t": "Firmengründung", "svc4.p": "Eine Pension, ein Restaurant oder ein Dienstleistungsunternehmen auf den Inseln gründen.",
+    "svc4.a": "Firmenregistrierung", "svc4.b": "Lizenzen & Genehmigungen", "svc4.c": "Lokale Partner",
+    "isl.title": "Finden Sie Ihre Insel",
+    "isl.intro": "Jede Insel hat ihren eigenen Charakter. Tippen Sie auf eine Insel, um zu sehen, für wen sie am besten passt.",
+    "isl.north": "Barlavento ↑ Inseln über dem Winde", "isl.south": "Sotavento ↓ Inseln unter dem Winde",
+    "card.best": "Ideal für", "card.town": "Hauptort", "card.area": "Fläche", "card.cta": "{name} mit uns planen",
+    "proc.title": "So funktioniert's", "proc.intro": "Drei Schritte von der ersten Frage bis zu Ihrer Zeit auf den Inseln.",
+    "s1.t": "Kostenloses Erstgespräch", "s1.p": "Wir hören uns Ihre Ziele, Ihr Budget und Ihren Zeitplan an und sagen Ihnen ehrlich, was realistisch ist.", "s1.w": "20 Minuten · kostenlos · Video oder Telefon",
+    "s2.t": "Beratung & Plan", "s2.p": "Per Videocall oder schriftlich erarbeiten wir Ihre persönliche Strategie: Inseln, Orte, Dokumente und nächste Schritte.", "s2.w": "Videocall oder PDF",
+    "s3.t": "Begleitung vor Ort", "s3.p": "Wir öffnen Türen bei Behörden, Banken und Notaren und bleiben Ihr Ansprechpartner auf den Inseln.", "s3.w": "vor Ort und online",
+    "facts.title": "Die Kapverden auf einen Blick",
+    "f1": "Sonnentage im Jahr, ganzjährig rund 25 °C",
+    "f2.v": "≈ 6 Std.", "f2": "Direktflug aus Deutschland nach Sal oder Boa Vista",
+    "f3.v": "110,265", "f3": "Escudos (CVE) pro Euro, fester Wechselkurs seit 1998",
+    "f4": "nur 2–3 Stunden hinter Mitteleuropa",
+    "morabeza": "Das kapverdische Wort für die herzliche, entspannte Gastfreundschaft, die Sie auf jeder Insel spüren. Genau so arbeiten wir auch mit unseren Kunden.",
+    "c.eyebrow": "Kontakt", "c.title": "Erzählen Sie uns von Ihren Kapverden-Plänen",
+    "c.intro": "Schreiben Sie uns ein paar Zeilen, und wir melden uns, um Ihr kostenloses 20-Minuten-Gespräch zu vereinbaren. Wir sprechen Deutsch, Englisch und Portugiesisch.",
+    "c.email": "E-Mail", "c.office": "Büro", "c.copy": "Kopieren", "c.copied": "Kopiert",
+    "form.name": "Name", "form.email": "E-Mail", "form.topic": "Ich interessiere mich für", "form.island": "Insel",
+    "form.unsure": "Noch unsicher", "form.undecided": "Noch offen", "form.msg": "Ihre Nachricht",
+    "form.ph": "Wann, mit wem und was Sie vorhaben", "form.send": "Anfrage senden",
+    "form.note": "Wir verwenden Ihre Daten nur zur Beantwortung Ihrer Anfrage.", "privacy": "Datenschutz",
+    "form.err": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
+    "form.ok": "Danke, {name}! Senden Sie Ihre Anfrage jetzt per WhatsApp an uns oder per E-Mail an {email}.",
+    "form.wa": "Per WhatsApp senden",
+    "wa.msg": "Hallo Sun Vibes Kapverden!\nName: {name}\nE-Mail: {email}\nThema: {topic}\nInsel: {island}\n\n{msg}",
+    "footer": "Beratung für Reise, Auswanderung und Investition auf den Kapverden",
+    "none": "Keiner, Schutzgebiet"
+  },
+  en: {
+    "nav.services": "Services", "nav.about": "About us", "nav.islands": "Islands", "nav.process": "How it works", "nav.contact": "Contact",
+    "hero.eyebrow": "Consulting for Cape Verde · Cabo Verde · Kapverden",
+    "hero.title": "Authentic Cape Verde consulting for <em>travelers &amp; investors</em>",
+    "hero.lede": "Personalized itineraries, expert insights and trusted business advisory for the Cape Verdean islands.",
+    "hero.cta1": "Book a free 20-minute call", "hero.cta2": "Explore the islands",
+    "hero.alt": "Empty sand beach with clear turquoise water under a blue sky",
+    "about.eyebrow": "About us", "about.title": "Cape Verdean roots, based in Austria",
+    "about.p": "Sun Vibes Kapverden connects people with the true spirit of Cape Verde. Founded by a Cape Verdean living in Austria, we combine cultural insight, professional advisory skills and a genuine passion for the islands.",
+    "about.mission": "Our mission: trusted, personal and culturally rooted guidance for travelers and investors.",
+    "why.title": "Why Sun Vibes",
+    "why.1": "Local cultural knowledge", "why.2": "Advice in German, English and Portuguese",
+    "why.3": "A professional consulting approach", "why.4": "No generic advice, everything is personal",
+    "why.5": "Focus on safety, authenticity and real experiences",
+    "svc.title": "What we help you with",
+    "svc.intro": "Whether it is two weeks of sun or a new life on the islands, we turn your plan into concrete steps and stay with you until it works.",
+    "svc1.t": "Travel planning", "svc1.p": "Island-hopping routes that fit your style, from kite beaches to volcano hikes. With a personal video call if you like.",
+    "svc1.a": "Custom itinerary as PDF", "svc1.b": "Accommodation & transport tips", "svc1.c": "Safety & cultural insights",
+    "svc2.t": "Relocation", "svc2.p": "Moving to Cabo Verde for retirement, remote work or family.",
+    "svc2.a": "Residence permits", "svc2.b": "NIF tax number & bank account", "svc2.c": "Housing & schools",
+    "svc3.t": "Property & investment", "svc3.p": "Buying land or an apartment safely, with checks before you sign.",
+    "svc3.a": "Location scouting", "svc3.b": "Title & registry checks", "svc3.c": "Vetted lawyers & builders",
+    "svc4.t": "Business setup", "svc4.p": "Launching a guesthouse, restaurant or service company on the islands.",
+    "svc4.a": "Company registration", "svc4.b": "Licences & permits", "svc4.c": "Local partners",
+    "isl.title": "Find your island",
+    "isl.intro": "Every island has its own character. Tap one on the map to see who it suits best.",
+    "isl.north": "Barlavento ↑ windward islands", "isl.south": "Sotavento ↓ leeward islands",
+    "card.best": "Best for", "card.town": "Main town", "card.area": "Area", "card.cta": "Plan {name} with us",
+    "proc.title": "How it works", "proc.intro": "Three steps from first question to your time on the islands.",
+    "s1.t": "Free first call", "s1.p": "We listen to your goals, budget and timeline and tell you honestly what is realistic.", "s1.w": "20 minutes · free · video or phone",
+    "s2.t": "Consultation & plan", "s2.p": "In a video call or in writing, we build your personal strategy: islands, places, documents and next steps.", "s2.w": "video call or PDF",
+    "s3.t": "Support on the islands", "s3.p": "We open doors at offices, banks and notaries and stay your contact person on site.", "s3.w": "on the islands and online",
+    "facts.title": "Cape Verde at a glance",
+    "f1": "sunny days a year, around 25 °C all year round",
+    "f2.v": "≈ 6 h", "f2": "direct flight from Germany to Sal or Boa Vista",
+    "f3.v": "110.265", "f3": "escudos (CVE) per euro, a fixed peg since 1998",
+    "f4": "only 2–3 hours behind Central Europe",
+    "morabeza": "The Cape Verdean word for the warm, unhurried hospitality you feel on every island. It is how we work with our clients, too.",
+    "c.eyebrow": "Get in touch", "c.title": "Tell us about your Cape Verde plans",
+    "c.intro": "Send us a few lines and we will get back to you to arrange your free 20-minute call. We speak German, English and Portuguese.",
+    "c.email": "Email", "c.office": "Office", "c.copy": "Copy", "c.copied": "Copied",
+    "form.name": "Name", "form.email": "Email", "form.topic": "I am interested in", "form.island": "Island",
+    "form.unsure": "Not sure yet", "form.undecided": "Not decided", "form.msg": "Your message",
+    "form.ph": "When, who and what you have in mind", "form.send": "Send request",
+    "form.note": "We only use your details to answer your request.", "privacy": "Privacy policy",
+    "form.err": "Please enter your name and a valid email address.",
+    "form.ok": "Thanks, {name}! Send your request to us on WhatsApp now, or email it to {email}.",
+    "form.wa": "Send via WhatsApp",
+    "wa.msg": "Hello Sun Vibes Kapverden!\nName: {name}\nEmail: {email}\nTopic: {topic}\nIsland: {island}\n\n{msg}",
+    "footer": "Consulting for travel, relocation and investment in Cabo Verde",
+    "none": "None, protected area"
+  },
+  pt: {
+    "nav.services": "Serviços", "nav.about": "Sobre nós", "nav.islands": "Ilhas", "nav.process": "Como funciona", "nav.contact": "Contacto",
+    "hero.eyebrow": "Consultoria para Cabo Verde · Kapverden · Cape Verde",
+    "hero.title": "Consultoria autêntica sobre Cabo Verde para <em>viajantes e investidores</em>",
+    "hero.lede": "Roteiros personalizados, conhecimento especializado e aconselhamento empresarial de confiança para as ilhas de Cabo Verde.",
+    "hero.cta1": "Conversa gratuita de 20 min", "hero.cta2": "Explorar as ilhas",
+    "hero.alt": "Praia de areia deserta com água turquesa e transparente sob céu azul",
+    "about.eyebrow": "Sobre nós", "about.title": "Raízes cabo-verdianas, com base na Áustria",
+    "about.p": "A Sun Vibes Kapverden liga as pessoas ao verdadeiro espírito de Cabo Verde. Com raízes cabo-verdianas e base na Áustria, juntamos conhecimento cultural, competência de consultoria e uma paixão genuína pelas ilhas.",
+    "about.mission": "A nossa missão: um acompanhamento de confiança, pessoal e enraizado na cultura, para viajantes e investidores.",
+    "why.title": "Porquê a Sun Vibes",
+    "why.1": "Conhecimento cultural local", "why.2": "Aconselhamento em alemão, inglês e português",
+    "why.3": "Abordagem profissional de consultoria", "why.4": "Nada de conselhos genéricos, tudo é personalizado",
+    "why.5": "Foco na segurança, autenticidade e experiências reais",
+    "svc.title": "Como podemos ajudar",
+    "svc.intro": "Sejam duas semanas de sol ou uma nova vida nas ilhas, transformamos o seu plano em passos concretos e acompanhamos até tudo funcionar.",
+    "svc1.t": "Planeamento de viagens", "svc1.p": "Roteiros entre ilhas à sua medida, das praias de kitesurf às caminhadas no vulcão. Com videochamada pessoal, se preferir.",
+    "svc1.a": "Roteiro personalizado em PDF", "svc1.b": "Sugestões de alojamento e transporte", "svc1.c": "Dicas de segurança e cultura",
+    "svc2.t": "Mudança para Cabo Verde", "svc2.p": "Viver em Cabo Verde na reforma, em trabalho remoto ou em família.",
+    "svc2.a": "Autorização de residência", "svc2.b": "NIF e conta bancária", "svc2.c": "Habitação e escolas",
+    "svc3.t": "Imobiliário e investimento", "svc3.p": "Comprar terreno ou apartamento com segurança, com verificações antes de assinar.",
+    "svc3.a": "Procura de localização", "svc3.b": "Verificação do registo predial", "svc3.c": "Advogados e construtores de confiança",
+    "svc4.t": "Criação de empresas", "svc4.p": "Abrir uma pensão, um restaurante ou uma empresa de serviços nas ilhas.",
+    "svc4.a": "Registo da empresa", "svc4.b": "Licenças e alvarás", "svc4.c": "Parceiros locais",
+    "isl.title": "Encontre a sua ilha",
+    "isl.intro": "Cada ilha tem o seu próprio carácter. Toque numa ilha no mapa para ver a quem mais se adequa.",
+    "isl.north": "Barlavento ↑ ilhas do norte", "isl.south": "Sotavento ↓ ilhas do sul",
+    "card.best": "Ideal para", "card.town": "Cidade principal", "card.area": "Área", "card.cta": "Planear {name} connosco",
+    "proc.title": "Como funciona", "proc.intro": "Três passos, da primeira pergunta até ao seu tempo nas ilhas.",
+    "s1.t": "Primeira conversa gratuita", "s1.p": "Ouvimos os seus objetivos, orçamento e prazos e dizemos-lhe com honestidade o que é realista.", "s1.w": "20 minutos · gratuita · vídeo ou telefone",
+    "s2.t": "Consulta e plano", "s2.p": "Por videochamada ou por escrito, criamos a sua estratégia pessoal: ilhas, locais, documentos e próximos passos.", "s2.w": "videochamada ou PDF",
+    "s3.t": "Apoio nas ilhas", "s3.p": "Abrimos portas em repartições, bancos e notários e continuamos a ser o seu contacto no local.", "s3.w": "nas ilhas e online",
+    "facts.title": "Cabo Verde num relance",
+    "f1": "dias de sol por ano, cerca de 25 °C durante todo o ano",
+    "f2.v": "≈ 6 h", "f2": "voo direto da Alemanha para o Sal ou a Boa Vista",
+    "f3.v": "110,265", "f3": "escudos (CVE) por euro, câmbio fixo desde 1998",
+    "f4": "apenas 2–3 horas atrás da Europa Central",
+    "morabeza": "A palavra cabo-verdiana para a hospitalidade calorosa e tranquila que se sente em todas as ilhas. É também assim que trabalhamos com os nossos clientes.",
+    "c.eyebrow": "Contacto", "c.title": "Conte-nos os seus planos para Cabo Verde",
+    "c.intro": "Envie-nos algumas linhas e entraremos em contacto para marcar a sua conversa gratuita de 20 minutos. Falamos alemão, inglês e português.",
+    "c.email": "E-mail", "c.office": "Escritório", "c.copy": "Copiar", "c.copied": "Copiado",
+    "form.name": "Nome", "form.email": "E-mail", "form.topic": "Tenho interesse em", "form.island": "Ilha",
+    "form.unsure": "Ainda não sei", "form.undecided": "Por decidir", "form.msg": "A sua mensagem",
+    "form.ph": "Quando, com quem e o que tem em mente", "form.send": "Enviar pedido",
+    "form.note": "Usamos os seus dados apenas para responder ao seu pedido.", "privacy": "Política de privacidade",
+    "form.err": "Indique o seu nome e um endereço de e-mail válido.",
+    "form.ok": "Obrigado, {name}! Envie-nos agora o seu pedido por WhatsApp ou por e-mail para {email}.",
+    "form.wa": "Enviar por WhatsApp",
+    "wa.msg": "Olá Sun Vibes Kapverden!\nNome: {name}\nE-mail: {email}\nTema: {topic}\nIlha: {island}\n\n{msg}",
+    "footer": "Consultoria para viagens, mudança e investimento em Cabo Verde",
+    "none": "Nenhuma, área protegida"
+  }
+};
+
+// Islands: positions from real lon/lat, radius from land area (km²)
+const ISLANDS = [
+  { id: "santo-antao", name: "Santo Antão", x: 80,  y: 50,  area: 779, group: "Barlavento", town: "Porto Novo / Ribeira Grande",
+    photos: [
+      { src: "santoantao-aerial.jpg", alt: { de: "Luftaufnahme einer Bergstraße durch grüne Hügel über dem Meer", en: "Aerial view of a mountain road through green hills above the sea", pt: "Vista aérea de uma estrada de montanha entre colinas verdes sobre o mar" } },
+      { src: "santoantao-village.jpg", alt: { de: "Bunte Häuser zwischen grünen Terrassenfeldern und Bergen", en: "Colourful houses among green terraced fields and mountains", pt: "Casas coloridas entre socalcos verdes e montanhas" } }
+    ],
+    best: { de: "Wanderer & Naturliebhaber", en: "Hikers & nature lovers", pt: "Caminhantes e amantes da natureza" },
+    vibe: { de: "Grüne Täler, terrassierte Berge und spektakuläre Küstenwege. Mit der Fähre ab São Vicente erreichbar.",
+            en: "Green valleys, terraced mountains and dramatic coastal trails. Reached by ferry from São Vicente.",
+            pt: "Vales verdes, montanhas em socalcos e trilhos costeiros espetaculares. Acesso por ferry a partir de São Vicente." } },
+  { id: "sao-vicente", name: "São Vicente", x: 130, y: 90,  area: 227, group: "Barlavento", town: "Mindelo",
+    best: { de: "Kultur & Stadtleben", en: "Culture & city life", pt: "Cultura e vida urbana" },
+    vibe: { de: "Mindelo ist die Kulturhauptstadt: Musik, Karneval, Cafés und eine lebhafte Marina.",
+            en: "Mindelo is the cultural capital: music, carnival, cafés and a busy marina.",
+            pt: "O Mindelo é a capital cultural: música, carnaval, cafés e uma marina movimentada." } },
+  { id: "santa-luzia", name: "Santa Luzia", x: 172, y: 108, area: 35,  group: "Barlavento", town: null,
+    best: { de: "Nur Tagesausflüge", en: "Day trips only", pt: "Apenas excursões de um dia" },
+    vibe: { de: "Unbewohntes Naturschutzgebiet mit menschenleeren Stränden, per Boot erreichbar.",
+            en: "Uninhabited nature reserve with empty beaches, visited by boat.",
+            pt: "Reserva natural desabitada com praias desertas, visitada de barco." } },
+  { id: "sao-nicolau", name: "São Nicolau", x: 262, y: 140, area: 343, group: "Barlavento", town: "Ribeira Brava",
+    best: { de: "Ruhige Auszeiten", en: "Quiet retreats", pt: "Retiros tranquilos" },
+    vibe: { de: "Abseits der Touristenpfade, mit Bergen, Fischerdörfern und sehr wenigen Urlaubern.",
+            en: "Off the beaten track, with mountains, fishing villages and very few tourists.",
+            pt: "Fora dos circuitos turísticos, com montanhas, aldeias piscatórias e muito poucos turistas." } },
+  { id: "sal",         name: "Sal",         x: 534, y: 114, area: 216, group: "Barlavento", town: "Espargos / Santa Maria",
+    photos: [
+      { src: "sal-heart.jpg", alt: { de: "Ein Herz aus Lavasteinen im Sand am Strand", en: "A heart of lava stones in the beach sand", pt: "Um coração de pedras de lava na areia da praia" } }
+    ],
+    best: { de: "Strandurlaub & Vermietung", en: "Beach holidays & rentals", pt: "Férias de praia e arrendamento" },
+    vibe: { de: "Internationaler Flughafen, der Strand von Santa Maria, Kitesurfen und der stärkste Vermietungsmarkt.",
+            en: "International airport, Santa Maria beach, kitesurfing and the strongest rental market.",
+            pt: "Aeroporto internacional, a praia de Santa Maria, kitesurf e o mercado de arrendamento mais forte." } },
+  { id: "boa-vista",   name: "Boa Vista",   x: 560, y: 240, area: 620, group: "Barlavento", town: "Sal Rei",
+    photos: [
+      { src: "boavista-turtle.jpg", alt: { de: "Unechte Karettschildkröte am Strand in der Abenddämmerung", en: "Loggerhead turtle on the beach at dusk", pt: "Tartaruga-comum na praia ao entardecer" } },
+      { src: "boavista-shipwreck.jpg", alt: { de: "Portugiesische Galeere am Strand, dahinter ein Schiffswrack in der Brandung", en: "Portuguese man o' war on the beach with a shipwreck in the surf behind", pt: "Caravela-portuguesa na praia com um naufrágio na rebentação" } }
+    ],
+    best: { de: "Resorts & lange Strände", en: "Resorts & long beaches", pt: "Resorts e praias extensas" },
+    vibe: { de: "Dünen, Strände mit Schildkrötennestern und große Resorts. Direktflüge aus Europa.",
+            en: "Dunes, turtle nesting beaches and large resorts. Direct flights from Europe.",
+            pt: "Dunas, praias de desova de tartarugas e grandes resorts. Voos diretos da Europa." } },
+  { id: "maio",        name: "Maio",        x: 490, y: 416, area: 269, group: "Sotavento",  town: "Vila do Maio",
+    best: { de: "Entschleunigtes Leben", en: "Slow living", pt: "Vida tranquila" },
+    vibe: { de: "Ruhige, unberührte Strände und eine kleine Gemeinschaft, nah an der Hauptstadt.",
+            en: "Calm, untouched beaches and a small community, close to the capital.",
+            pt: "Praias calmas e intactas e uma pequena comunidade, perto da capital." } },
+  { id: "santiago",    name: "Santiago",    x: 400, y: 444, area: 991, group: "Sotavento",  town: "Praia",
+    best: { de: "Business & Behörden", en: "Business & administration", pt: "Negócios e administração" },
+    vibe: { de: "Größte Insel mit der Hauptstadt Praia, Ministerien, Banken und dem UNESCO-Welterbe Cidade Velha.",
+            en: "Largest island, home to the capital Praia, ministries, banks and UNESCO-listed Cidade Velha.",
+            pt: "A maior ilha, com a capital Praia, ministérios, bancos e a Cidade Velha, Património Mundial da UNESCO." } },
+  { id: "fogo",        name: "Fogo",        x: 240, y: 476, area: 476, group: "Sotavento",  town: "São Filipe",
+    best: { de: "Abenteuer & Wein", en: "Adventure & wine", pt: "Aventura e vinho" },
+    vibe: { de: "Aktiver Vulkan Pico do Fogo (2.829 m), schwarzer Sand und Wein aus dem Krater.",
+            en: "Active volcano Pico do Fogo (2,829 m), black sand and wine grown in the crater.",
+            pt: "O vulcão ativo Pico do Fogo (2829 m), areia negra e vinho produzido dentro da cratera." } },
+  { id: "brava",       name: "Brava",       x: 178, y: 492, area: 64,  group: "Sotavento",  town: "Nova Sintra",
+    best: { de: "Totale Auszeit", en: "Total escape", pt: "Fuga total" },
+    vibe: { de: "Kleinste bewohnte Insel mit Blumen, Nebel und steilen grünen Hügeln. Nur per Fähre erreichbar.",
+            en: "Smallest inhabited island, with flowers, fog and steep green hills. Ferry access only.",
+            pt: "A mais pequena ilha habitada, com flores, nevoeiro e colinas verdes íngremes. Acesso apenas por ferry." } }
+];
+
+const LOCALE = { de: "de-DE", en: "en-GB", pt: "pt-PT" };
+let lang = "de";
+let current = "sal";
+const t = (k, vars = {}) => (T[lang][k] ?? T.en[k] ?? k).replace(/\{(\w+)\}/g, (_, v) => vars[v] ?? "");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function applyLang(next) {
+  lang = T[next] ? next : "de";
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = t(el.dataset.i18nAlt); });
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
+  select(current);
+  try { localStorage.setItem("svk-lang", lang); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+// Map
+const svg = document.getElementById("map");
+const card = document.getElementById("card");
+const NS = "http://www.w3.org/2000/svg";
+ISLANDS.forEach(isl => {
+  const g = document.createElementNS(NS, "g");
+  g.setAttribute("class", "isl");
+  g.setAttribute("tabindex", "0");
+  g.setAttribute("role", "button");
+  g.setAttribute("aria-label", isl.name);
+  g.dataset.id = isl.id;
+  const r = Math.max(7, Math.sqrt(isl.area) * 1.1);
+  const c = document.createElementNS(NS, "circle");
+  c.setAttribute("cx", isl.x); c.setAttribute("cy", isl.y); c.setAttribute("r", r);
+  const tx = document.createElementNS(NS, "text");
+  const right = isl.x < 560;
+  tx.setAttribute("x", right ? isl.x + r + 6 : isl.x - r - 6);
+  tx.setAttribute("y", isl.y + 4);
+  tx.setAttribute("text-anchor", right ? "start" : "end");
+  tx.textContent = isl.name;
+  g.append(c, tx);
+  g.addEventListener("click", () => select(isl.id));
+  g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(isl.id); } });
+  svg.appendChild(g);
+});
+
+const islandSelect = document.getElementById("f-island");
+ISLANDS.filter(i => i.id !== "santa-luzia").forEach(i => islandSelect.add(new Option(i.name, i.name)));
+
+function select(id) {
+  current = id;
+  const isl = ISLANDS.find(i => i.id === id);
+  svg.querySelectorAll(".isl").forEach(g => g.setAttribute("aria-pressed", g.dataset.id === id ? "true" : "false"));
+  const photos = isl.photos || [];
+  card.innerHTML = `
+    ${photos.length ? `<div class="island-photos${photos.length > 1 ? " two" : ""}">${photos.map(p => `<img src="img/${p.src}" alt="${esc(p.alt[lang])}" loading="lazy">`).join("")}</div>` : ""}
+    <span class="tag">${isl.group}</span>
+    <h3>${isl.name}</h3>
+    <p>${isl.vibe[lang]}</p>
+    <dl>
+      <dt>${t("card.best")}</dt><dd>${isl.best[lang]}</dd>
+      <dt>${t("card.town")}</dt><dd>${isl.town ?? t("none")}</dd>
+      <dt>${t("card.area")}</dt><dd>${isl.area.toLocaleString(LOCALE[lang])} km²</dd>
+    </dl>
+    ${isl.id === "santa-luzia" ? "" : `<a class="btn btn-ghost" href="#contact">${t("card.cta", { name: isl.name })}</a>`}`;
+  const a = card.querySelector("a");
+  if (a) a.addEventListener("click", () => { islandSelect.value = isl.name; });
+}
+
+// Copy buttons
+document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", () => {
+  const done = () => { btn.textContent = t("c.copied"); setTimeout(() => { btn.textContent = t("c.copy"); }, 1600); };
+  const fallback = () => {
+    const v = btn.parentElement.querySelector(".v");
+    const range = document.createRange(); range.selectNodeContents(v);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(range);
+  };
+  try { navigator.clipboard.writeText(btn.dataset.copy).then(done, fallback); } catch (e) { fallback(); }
+}));
+
+// Contact form: builds a ready-to-send WhatsApp message
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target;
+  const name = f.name.value.trim(), email = f.email.value.trim();
+  const note = document.getElementById("form-note");
+  if (!name || !/^\S+@\S+\.\S+$/.test(email)) {
+    note.className = "form-note";
+    note.textContent = t("form.err");
+    return;
+  }
+  const msg = t("wa.msg", {
+    name, email,
+    topic: f.topic.options[f.topic.selectedIndex].text,
+    island: f.island.value || t("form.undecided"),
+    msg: f.message.value.trim()
+  });
+  note.className = "form-ok";
+  note.innerHTML = `<span>${esc(t("form.ok", { name, email: EMAIL }))}</span>
+    <a class="btn btn-sun" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">${esc(t("form.wa"))}</a>`;
+});
+
+// Start language: saved choice, else browser language, else German
+let start = null;
+try { start = localStorage.getItem("svk-lang"); } catch (e) {}
+if (!T[start]) {
+  const nav = (navigator.language || "de").slice(0, 2).toLowerCase();
+  start = T[nav] ? nav : "de";
+}
+applyLang(start);
+
+</script>
+</body>
+</html>

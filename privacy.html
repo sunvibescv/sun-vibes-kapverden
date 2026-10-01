@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Datenschutz · Sun Vibes Kapverden</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f2c200">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root {
+  --salt: #f2f5f7; --surface: #ffffff; --ink: #0d2236; --ink-soft: #4a5d70;
+  --sun: #f2c200; --ember: #e2591f; --sea: #1f5f8b; --line: #d5dee6;
+  --f-display: "Syne", "Trebuchet MS", system-ui, sans-serif;
+  --f-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --salt: #0a1824; --surface: #10212f; --ink: #e8eef3; --ink-soft: #9fb2c3; --sun: #ffcf1a; --ember: #ff7a3d; --sea: #7fbbe3; --line: #22384a; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --salt: #0a1824; --surface: #10212f; --ink: #e8eef3; --ink-soft: #9fb2c3; --sun: #ffcf1a; --ember: #ff7a3d; --sea: #7fbbe3; --line: #22384a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--salt); color: var(--ink); font-family: var(--f-body); font-size: 1rem; line-height: 1.65; padding-inline: var(--gutter); }
+.wrap { max-width: 760px; margin-inline: auto; }
+a { color: var(--sea); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.nav img { height: 46px; width: auto; display: block; }
+.lang { display: flex; border: 1.5px solid var(--ink); border-radius: 999px; padding: 2px; gap: 2px; }
+.lang button { font: 500 0.78rem var(--f-mono); letter-spacing: .08em; color: var(--ink); background: transparent; border: 0; border-radius: 999px; padding: 5px 10px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--salt); }
+main { padding-block: 24px 64px; }
+.back { font-weight: 500; text-decoration: none; }
+h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; margin: 20px 0 6px; text-wrap: balance; }
+.updated { font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 32px; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.2rem; margin: 36px 0 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+p, li { color: var(--ink-soft); }
+p { margin: 0 0 12px; }
+ul { margin: 0 0 12px; padding-left: 20px; }
+strong { color: var(--ink); font-weight: 600; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; font-family: var(--f-mono); font-size: 0.9rem; line-height: 1.7; overflow-wrap: anywhere; }
+.card p { margin: 0; color: var(--ink); }
+footer { border-top: 1px solid var(--line); padding-block: 24px 40px; font-size: 0.88rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <a href="index.html"><img src="img/logo-wide.png" alt="Sun Vibes Kapverden" width="720" height="249"></a>
+    <div class="lang" role="group" aria-label="Sprache / Language / Língua">
+      <button type="button" id="lang-de" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
+      <button type="button" id="lang-en" data-lang="en" lang="en" aria-label="English">EN</button>
+      <button type="button" id="lang-pt" data-lang="pt" lang="pt" aria-label="Português">PT</button>
+    </div>
+  </header>
+
+  <!-- ========== DEUTSCH ========== -->
+  <main id="doc-de" lang="de">
+    <a class="back" href="index.html">← Zur Startseite</a>
+    <h1>Datenschutzerklärung</h1>
+    <p class="updated">Stand: Oktober 2026</p>
+    <p>Der Schutz Ihrer persönlichen Daten ist uns wichtig. Hier erklären wir, welche Daten beim Besuch dieser Website und bei einer Anfrage verarbeitet werden, wozu und welche Rechte Sie haben.</p>
+
+    <h2>1. Verantwortlich</h2>
+    <div class="card">
+      <p>SUN VIBES, SOCIEDADE UNIPESSOAL LDA</p>
+      <p>(Sun Vibes Kapverden)</p>
+      <p>Santa Maria, Sal, Cabo Verde</p>
+      <p>NIF: 289613108</p>
+      <p>E-Mail: sun_vibesCV@proton.me</p>
+      <p>WhatsApp: +43 660 6918880</p>
+    </div>
+
+    <h2>2. Besuch der Website</h2>
+    <p>Diese Website wird über <strong>GitHub Pages</strong> bereitgestellt (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs sowie Browser- und Geräteangaben, um die Seite auszuliefern und vor Angriffen zu schützen. Dabei können Daten in die USA übermittelt werden.</p>
+    <p>Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und funktionierenden Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere Informationen finden Sie in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+
+    <h2>3. Keine Cookies, kein Tracking</h2>
+    <p>Wir setzen keine Cookies, keine Analyse-Tools und keine Werbe-Tracker ein. Die Schriftarten sind auf dieser Website selbst gespeichert, es werden also keine Daten an Google übertragen.</p>
+    <p>Ihre Sprachauswahl (DE, EN oder PT) wird nur im lokalen Speicher Ihres Browsers abgelegt, damit die Seite beim nächsten Besuch in Ihrer Sprache erscheint. Diese Angabe verlässt Ihr Gerät nicht, und Sie können sie jederzeit in den Browsereinstellungen löschen.</p>
+
+    <h2>4. Kontakt über Formular, WhatsApp oder E-Mail</h2>
+    <p>Das Kontaktformular sendet keine Daten an einen Server. Es bereitet aus Ihren Eingaben eine WhatsApp-Nachricht vor, die Sie selbst absenden. Ihre Daten erreichen uns also erst, wenn Sie uns per WhatsApp oder E-Mail schreiben.</p>
+    <ul>
+      <li><strong>WhatsApp</strong> wird von WhatsApp Ireland Limited (Meta) betrieben. Es gilt die Datenschutzrichtlinie von WhatsApp.</li>
+      <li><strong>E-Mails</strong> empfangen wir über Proton Mail (Proton AG, Schweiz).</li>
+    </ul>
+    <p>Wir verwenden Ihren Namen, Ihre Kontaktdaten und den Inhalt Ihrer Nachricht nur, um Ihre Anfrage zu beantworten und eine Beratung vorzubereiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
+
+    <h2>5. Wenn Sie Kunde werden</h2>
+    <p>Für die Durchführung einer Beratung verarbeiten wir zusätzlich Rechnungsadresse, Buchungs- und Zahlungsdaten sowie Angaben, die Sie uns für Ihr Anliegen freiwillig geben. Zweck sind Vertragserfüllung, Rechnungslegung und Buchhaltung (Art. 6 Abs. 1 lit. b und lit. c DSGVO).</p>
+
+    <h2>6. Weitergabe</h2>
+    <p>Wir geben Daten nur weiter, wenn das für unsere Leistung nötig oder gesetzlich vorgeschrieben ist: an Buchhaltung bzw. Steuerberatung, Zahlungsdienstleister, technische Dienstleister (Hosting, E-Mail) und Behörden. Ihre Daten werden nie verkauft oder für Werbung weitergegeben.</p>
+
+    <h2>7. Speicherdauer</h2>
+    <ul>
+      <li>Anfragen: bis zu 1 Jahr nach dem letzten Kontakt</li>
+      <li>Verträge und Rechnungen: so lange, wie es die gesetzlichen Aufbewahrungspflichten verlangen</li>
+    </ul>
+
+    <h2>8. Ihre Rechte</h2>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Eine erteilte Einwilligung können Sie jederzeit widerrufen. Schreiben Sie uns dazu einfach an <strong>sun_vibesCV@proton.me</strong>.</p>
+
+    <h2>9. Beschwerde</h2>
+    <p>Sie können sich bei einer Datenschutzbehörde beschweren: in Cabo Verde bei der Comissão Nacional de Proteção de Dados (CNPD), Praia. Wenn Sie in der EU leben, auch bei der Behörde Ihres Landes, in Österreich bei der Datenschutzbehörde (Barichgasse 40–42, 1030 Wien), in Deutschland bei der Datenschutzbehörde Ihres Bundeslandes.</p>
+
+    <h2>10. Anwendbares Recht</h2>
+    <p>Wir beachten das Datenschutzrecht von Cabo Verde (Lei n.º 133/V/2001 in geltender Fassung) und, soweit wir uns an Personen in der EU richten, die Datenschutz-Grundverordnung (DSGVO).</p>
+  </main>
+
+  <!-- ========== ENGLISH ========== -->
+  <main id="doc-en" lang="en" hidden>
+    <a class="back" href="index.html">← Back to home</a>
+    <h1>Privacy policy</h1>
+    <p class="updated">Last updated: October 2026</p>
+    <p>Protecting your personal data matters to us. This page explains what data is processed when you visit this website or contact us, why, and what rights you have.</p>
+
+    <h2>1. Who is responsible</h2>
+    <div class="card">
+      <p>SUN VIBES, SOCIEDADE UNIPESSOAL LDA</p>
+      <p>(Sun Vibes Kapverden)</p>
+      <p>Santa Maria, Sal, Cabo Verde</p>
+      <p>NIF: 289613108</p>
+      <p>Email: sun_vibesCV@proton.me</p>
+      <p>WhatsApp: +43 660 6918880</p>
+    </div>
+
+    <h2>2. Visiting the website</h2>
+    <p>This website is hosted on <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). When you open it, GitHub processes technically necessary data such as your IP address, the date and time of access, and browser and device details, to deliver the site and protect it from attacks. This data may be transferred to the USA.</p>
+    <p>The legal basis is our legitimate interest in a secure, working website (Art. 6(1)(f) GDPR). See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a> for details.</p>
+
+    <h2>3. No cookies, no tracking</h2>
+    <p>We use no cookies, no analytics and no advertising trackers. The fonts are stored on this website itself, so no data is sent to Google.</p>
+    <p>Your language choice (DE, EN or PT) is saved only in your browser's local storage, so the site opens in your language next time. It never leaves your device, and you can delete it at any time in your browser settings.</p>
+
+    <h2>4. Contacting us by form, WhatsApp or email</h2>
+    <p>The contact form does not send data to a server. It turns what you type into a WhatsApp message that you send yourself. Your data only reaches us when you write to us on WhatsApp or by email.</p>
+    <ul>
+      <li><strong>WhatsApp</strong> is run by WhatsApp Ireland Limited (Meta). WhatsApp's privacy policy applies.</li>
+      <li><strong>Emails</strong> reach us through Proton Mail (Proton AG, Switzerland).</li>
+    </ul>
+    <p>We use your name, contact details and message only to answer your request and prepare a consultation. The legal basis is Art. 6(1)(b) GDPR (steps before a contract) or Art. 6(1)(f) GDPR (legitimate interest in answering requests).</p>
+
+    <h2>5. When you become a client</h2>
+    <p>To deliver a consultation we also process your billing address, booking and payment details, and any information you choose to share for your case. We do this to fulfil the contract, issue invoices and keep our accounts (Art. 6(1)(b) and (c) GDPR).</p>
+
+    <h2>6. Sharing</h2>
+    <p>We only share data when our service or the law requires it: with our accountant or tax advisor, payment providers, technical providers (hosting, email) and public authorities. Your data is never sold or passed on for advertising.</p>
+
+    <h2>7. How long we keep data</h2>
+    <ul>
+      <li>Requests: up to 1 year after our last contact</li>
+      <li>Contracts and invoices: as long as legal retention rules require</li>
+    </ul>
+
+    <h2>8. Your rights</h2>
+    <p>You have the right to access, correct and delete your data, to restrict or object to its processing, and to data portability. You can withdraw any consent at any time. Just write to <strong>sun_vibesCV@proton.me</strong>.</p>
+
+    <h2>9. Complaints</h2>
+    <p>You can complain to a data protection authority: in Cabo Verde, the Comissão Nacional de Proteção de Dados (CNPD), Praia. If you live in the EU, you can also contact your national authority, for example the Datenschutzbehörde in Austria (Barichgasse 40–42, 1030 Vienna) or your federal state's authority in Germany.</p>
+
+    <h2>10. Applicable law</h2>
+    <p>We follow Cabo Verde's data protection law (Lei n.º 133/V/2001, as amended) and, where we offer our services to people in the EU, the General Data Protection Regulation (GDPR).</p>
+  </main>
+
+  <!-- ========== PORTUGUÊS ========== -->
+  <main id="doc-pt" lang="pt" hidden>
+    <a class="back" href="index.html">← Voltar ao início</a>
+    <h1>Política de privacidade</h1>
+    <p class="updated">Última atualização: outubro de 2026</p>
+    <p>A proteção dos seus dados pessoais é importante para nós. Aqui explicamos que dados são tratados quando visita este site ou nos contacta, para quê, e quais são os seus direitos.</p>
+
+    <h2>1. Responsável</h2>
+    <div class="card">
+      <p>SUN VIBES, SOCIEDADE UNIPESSOAL LDA</p>
+      <p>(Sun Vibes Kapverden)</p>
+      <p>Santa Maria, Sal, Cabo Verde</p>
+      <p>NIF: 289613108</p>
+      <p>E-mail: sun_vibesCV@proton.me</p>
+      <p>WhatsApp: +43 660 6918880</p>
+    </div>
+
+    <h2>2. Visita ao site</h2>
+    <p>Este site está alojado no <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, EUA). Quando o abre, o GitHub trata dados tecnicamente necessários, como o seu endereço IP, a data e hora do acesso e dados do navegador e do dispositivo, para entregar o site e protegê-lo contra ataques. Estes dados podem ser transferidos para os EUA.</p>
+    <p>A base legal é o nosso interesse legítimo num site seguro e funcional (art. 6.º, n.º 1, alínea f) do RGPD). Mais informações na <a href="https://docs.github.com/pt/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">declaração de privacidade do GitHub</a>.</p>
+
+    <h2>3. Sem cookies, sem rastreamento</h2>
+    <p>Não usamos cookies, ferramentas de análise nem rastreadores de publicidade. Os tipos de letra estão guardados neste próprio site, por isso nenhum dado é enviado à Google.</p>
+    <p>A sua escolha de língua (DE, EN ou PT) é guardada apenas no armazenamento local do seu navegador, para que o site abra na sua língua da próxima vez. Esta informação nunca sai do seu dispositivo e pode apagá-la a qualquer momento nas definições do navegador.</p>
+
+    <h2>4. Contacto por formulário, WhatsApp ou e-mail</h2>
+    <p>O formulário de contacto não envia dados para nenhum servidor. Transforma o que escreve numa mensagem de WhatsApp que é o próprio a enviar. Os seus dados só nos chegam quando nos escreve por WhatsApp ou e-mail.</p>
+    <ul>
+      <li>O <strong>WhatsApp</strong> é gerido pela WhatsApp Ireland Limited (Meta). Aplica-se a política de privacidade do WhatsApp.</li>
+      <li>Os <strong>e-mails</strong> chegam-nos através do Proton Mail (Proton AG, Suíça).</li>
+    </ul>
+    <p>Usamos o seu nome, contactos e mensagem apenas para responder ao seu pedido e preparar uma consulta. A base legal é o art. 6.º, n.º 1, alínea b) do RGPD (diligências pré-contratuais) ou alínea f) (interesse legítimo em responder a pedidos).</p>
+
+    <h2>5. Quando se torna cliente</h2>
+    <p>Para prestar uma consulta tratamos também a morada de faturação, dados de reserva e de pagamento, e as informações que decida partilhar sobre o seu caso. Fazemo-lo para cumprir o contrato, emitir faturas e manter a contabilidade (art. 6.º, n.º 1, alíneas b) e c) do RGPD).</p>
+
+    <h2>6. Partilha</h2>
+    <p>Só partilhamos dados quando o nosso serviço ou a lei o exigem: com contabilista ou consultor fiscal, prestadores de pagamento, prestadores técnicos (alojamento, e-mail) e autoridades públicas. Os seus dados nunca são vendidos nem cedidos para publicidade.</p>
+
+    <h2>7. Prazo de conservação</h2>
+    <ul>
+      <li>Pedidos: até 1 ano após o último contacto</li>
+      <li>Contratos e faturas: durante o prazo exigido pela lei</li>
+    </ul>
+
+    <h2>8. Os seus direitos</h2>
+    <p>Tem direito de acesso, retificação e apagamento dos seus dados, de limitação e oposição ao tratamento, e de portabilidade. Pode retirar qualquer consentimento a qualquer momento. Basta escrever para <strong>sun_vibesCV@proton.me</strong>.</p>
+
+    <h2>9. Reclamações</h2>
+    <p>Pode apresentar reclamação a uma autoridade de proteção de dados: em Cabo Verde, a Comissão Nacional de Proteção de Dados (CNPD), na Praia. Se vive na UE, também à autoridade do seu país, por exemplo a Datenschutzbehörde na Áustria (Barichgasse 40–42, 1030 Viena) ou a autoridade do seu estado federado na Alemanha.</p>
+
+    <h2>10. Lei aplicável</h2>
+    <p>Respeitamos a lei de proteção de dados de Cabo Verde (Lei n.º 133/V/2001, na redação em vigor) e, quando oferecemos os nossos serviços a pessoas na UE, o Regulamento Geral sobre a Proteção de Dados (RGPD).</p>
+  </main>
+
+  <footer>© 2026 Sun Vibes Kapverden</footer>
+</div>
+
+<script>
+const TITLES = { de: "Datenschutz · Sun Vibes Kapverden", en: "Privacy policy · Sun Vibes Kapverden", pt: "Política de privacidade · Sun Vibes Kapverden" };
+function applyLang(lang) {
+  if (!TITLES[lang]) lang = "de";
+  document.documentElement.lang = lang;
+  document.title = TITLES[lang];
+  ["de", "en", "pt"].forEach(l => { document.getElementById("doc-" + l).hidden = l !== lang; });
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
+  try { localStorage.setItem("svk-lang", lang); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+let start = null;
+try { start = localStorage.getItem("svk-lang"); } catch (e) {}
+if (!TITLES[start]) {
+  const nav = (navigator.language || "de").slice(0, 2).toLowerCase();
+  start = TITLES[nav] ? nav : "de";
+}
+applyLang(start);
+</script>
+</body>
+</html>
