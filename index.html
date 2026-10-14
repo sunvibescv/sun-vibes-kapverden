@@ -206,6 +206,16 @@ label { font-size: 0.85rem; font-weight: 600; }
 input, select, textarea { font: inherit; color: var(--ink); background: var(--salt); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; width: 100%; }
 textarea { min-height: 110px; resize: vertical; }
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--sun); outline-offset: 1px; }
+.err { grid-column: 1 / -1; color: color-mix(in srgb, var(--ember) 70%, var(--ink)); font-size: 0.85rem; }
+.err:empty { display: none; }
+.err.full { margin-top: -10px; }
+input[aria-invalid="true"] { border-color: var(--ember); }
+.extra { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.extra:empty { display: none; }
+.consent { flex-direction: row; align-items: flex-start; gap: 10px; }
+.consent input { width: auto; margin-top: 5px; flex: none; }
+.consent label { font-weight: 400; font-size: 0.9rem; color: var(--ink-soft); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-note { grid-column: 1 / -1; font-size: 0.9rem; color: var(--ink-soft); }
 .form-ok { grid-column: 1 / -1; background: color-mix(in srgb, var(--sun) 22%, var(--surface)); border-radius: 10px; padding: 14px 16px; font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 
@@ -224,7 +234,7 @@ footer img { height: 72px; width: auto; display: block; }
   .steps { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 560px) {
-  .services, .facts-grid, form { grid-template-columns: 1fr; }
+  .services, .facts-grid, form, .extra { grid-template-columns: 1fr; }
   .nav-links { gap: 14px; }
   .brand img { height: 42px; }
 }
@@ -397,8 +407,9 @@ footer img { height: 72px; width: auto; display: block; }
       </div>
     </div>
     <form id="form" novalidate>
-      <div class="field"><label for="f-name" data-i18n="form.name"></label><input id="f-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="f-email" data-i18n="form.email"></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-name" data-i18n="form.name"></label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name" role="alert"></span></div>
+      <div class="field"><label for="f-email" data-i18n="form.email"></label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email" role="alert"></span></div>
+      <div class="field"><label for="f-phone" data-i18n="form.phone"></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
       <div class="field"><label for="f-topic" data-i18n="form.topic"></label>
         <select id="f-topic" name="topic">
           <option value="travel" data-i18n="svc1.t"></option>
@@ -408,12 +419,16 @@ footer img { height: 72px; width: auto; display: block; }
           <option value="unsure" data-i18n="form.unsure"></option>
         </select>
       </div>
-      <div class="field"><label for="f-island" data-i18n="form.island"></label>
+      <div class="field full"><label for="f-island" data-i18n="form.island"></label>
         <select id="f-island" name="island"><option value="" data-i18n="form.undecided"></option></select>
       </div>
+      <div class="extra" id="extra"></div>
       <div class="field full"><label for="f-msg" data-i18n="form.msg"></label><textarea id="f-msg" name="message" data-i18n-ph="form.ph"></textarea></div>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="field full consent"><input id="f-consent" name="consent" type="checkbox" required aria-describedby="e-consent"><label for="f-consent" data-i18n-html="form.consent"></label></div>
+      <span class="err full" id="e-consent" role="alert"></span>
       <div class="field full"><button class="btn btn-sun" type="submit" data-i18n="form.send"></button></div>
-      <div class="form-note" id="form-note"><span data-i18n="form.note"></span> <a href="privacy.html" data-i18n="privacy"></a></div>
+      <div class="form-note" id="form-note" aria-live="polite"><span data-i18n="form.note"></span></div>
     </form>
   </div>
 </section>
@@ -591,6 +606,52 @@ const T = {
   }
 };
 
+Object.assign(T.de, {
+  "form.phone": "Telefon / WhatsApp (optional)", "form.mail": "Per E-Mail senden",
+  "form.consent": "Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verarbeitet werden. <a href=\"privacy.html\">Datenschutz</a>",
+  "form.err.name": "Bitte geben Sie Ihren Namen ein.", "form.err.email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+  "form.err.consent": "Bitte stimmen Sie zu, damit wir Ihnen antworten dürfen.",
+  "form.sending": "Wird gesendet …",
+  "form.sent": "Danke, {name}! Ihre Anfrage ist bei uns angekommen. Wir melden uns bei {email}.",
+  "form.sent.wa": "Schneller: per WhatsApp schreiben",
+  "form.fail": "Das Senden hat leider nicht geklappt. Bitte schreiben Sie uns direkt per WhatsApp oder E-Mail.",
+  "x.dates": "Reisezeitraum", "x.dates.ph": "z. B. März 2027, 2 Wochen", "x.travelers": "Anzahl Reisende",
+  "x.move": "Geplanter Umzug", "x.move.ph": "z. B. in 6 Monaten", "x.who": "Wer zieht um?", "x.who.ph": "z. B. Paar, Familie mit 2 Kindern",
+  "x.budget": "Budget", "x.b1": "unter 100.000 €", "x.b2": "100.000–250.000 €", "x.b3": "250.000–500.000 €", "x.b4": "über 500.000 €",
+  "x.ptype": "Art der Immobilie", "x.p1": "Grundstück", "x.p2": "Wohnung", "x.p3": "Haus",
+  "x.idea": "Geschäftsidee", "x.idea.ph": "z. B. Pension, Restaurant, Dienstleistung", "x.start": "Geplanter Start"
+});
+Object.assign(T.en, {
+  "form.phone": "Phone / WhatsApp (optional)", "form.mail": "Send via email",
+  "form.consent": "I agree that my details are processed to answer my request. <a href=\"privacy.html\">Privacy policy</a>",
+  "form.err.name": "Please enter your name.", "form.err.email": "Please enter a valid email address.",
+  "form.err.consent": "Please agree so we can reply to you.",
+  "form.sending": "Sending …",
+  "form.sent": "Thanks, {name}! Your request has reached us. We will get back to you at {email}.",
+  "form.sent.wa": "Faster: message us on WhatsApp",
+  "form.fail": "Sorry, sending did not work. Please write to us directly on WhatsApp or by email.",
+  "x.dates": "Travel dates", "x.dates.ph": "e.g. March 2027, 2 weeks", "x.travelers": "Number of travelers",
+  "x.move": "Planned move", "x.move.ph": "e.g. in 6 months", "x.who": "Who is moving?", "x.who.ph": "e.g. couple, family with 2 kids",
+  "x.budget": "Budget", "x.b1": "under €100,000", "x.b2": "€100,000–250,000", "x.b3": "€250,000–500,000", "x.b4": "over €500,000",
+  "x.ptype": "Property type", "x.p1": "Land", "x.p2": "Apartment", "x.p3": "House",
+  "x.idea": "Business idea", "x.idea.ph": "e.g. guesthouse, restaurant, services", "x.start": "Planned start"
+});
+Object.assign(T.pt, {
+  "form.phone": "Telefone / WhatsApp (opcional)", "form.mail": "Enviar por e-mail",
+  "form.consent": "Concordo que os meus dados sejam tratados para responder ao meu pedido. <a href=\"privacy.html\">Política de privacidade</a>",
+  "form.err.name": "Indique o seu nome.", "form.err.email": "Indique um endereço de e-mail válido.",
+  "form.err.consent": "Concorde para podermos responder-lhe.",
+  "form.sending": "A enviar …",
+  "form.sent": "Obrigado, {name}! O seu pedido chegou até nós. Respondemos para {email}.",
+  "form.sent.wa": "Mais rápido: escreva-nos no WhatsApp",
+  "form.fail": "Não foi possível enviar. Escreva-nos diretamente por WhatsApp ou e-mail.",
+  "x.dates": "Datas da viagem", "x.dates.ph": "ex.: março de 2027, 2 semanas", "x.travelers": "Número de viajantes",
+  "x.move": "Mudança prevista", "x.move.ph": "ex.: daqui a 6 meses", "x.who": "Quem se muda?", "x.who.ph": "ex.: casal, família com 2 filhos",
+  "x.budget": "Orçamento", "x.b1": "menos de 100 000 €", "x.b2": "100 000–250 000 €", "x.b3": "250 000–500 000 €", "x.b4": "mais de 500 000 €",
+  "x.ptype": "Tipo de imóvel", "x.p1": "Terreno", "x.p2": "Apartamento", "x.p3": "Moradia",
+  "x.idea": "Ideia de negócio", "x.idea.ph": "ex.: pensão, restaurante, serviços", "x.start": "Início previsto"
+});
+
 // Islands: positions from real lon/lat, radius from land area (km²)
 const ISLANDS = [
   { id: "santo-antao", name: "Santo Antão", x: 80,  y: 50,  area: 779, group: "Barlavento", town: "Porto Novo / Ribeira Grande",
@@ -676,6 +737,8 @@ function applyLang(next) {
   document.querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = t(el.dataset.i18nAlt); });
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
   select(current);
+  renderExtras();
+  ["name", "email", "consent"].forEach(k => { const el = document.getElementById("e-" + k); if (el.textContent) el.textContent = t("form.err." + k); });
   try { localStorage.setItem("svk-lang", lang); } catch (e) {}
 }
 document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => applyLang(b.dataset.lang)));
@@ -740,26 +803,85 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   try { navigator.clipboard.writeText(btn.dataset.copy).then(done, fallback); } catch (e) { fallback(); }
 }));
 
-// Contact form: builds a ready-to-send WhatsApp message
-document.getElementById("form").addEventListener("submit", e => {
+// Contact form
+// To receive requests by email: create a free form at formspree.io, then paste its URL here
+// (looks like "https://formspree.io/f/abcdwxyz"). While empty, the form opens WhatsApp instead.
+const FORM_ENDPOINT = "https://formspree.io/f/xppqykky";
+
+// Extra questions that depend on the chosen topic
+const EXTRAS = {
+  travel:     [{ id: "dates", l: "x.dates", ph: "x.dates.ph" }, { id: "travelers", l: "x.travelers", type: "number" }],
+  relocation: [{ id: "move", l: "x.move", ph: "x.move.ph" }, { id: "who", l: "x.who", ph: "x.who.ph" }],
+  property:   [{ id: "budget", l: "x.budget", opts: ["x.b1", "x.b2", "x.b3", "x.b4"] }, { id: "ptype", l: "x.ptype", opts: ["x.p1", "x.p2", "x.p3"] }],
+  business:   [{ id: "idea", l: "x.idea", ph: "x.idea.ph" }, { id: "start", l: "x.start", ph: "x.move.ph" }]
+};
+const form = document.getElementById("form");
+const extraBox = document.getElementById("extra");
+const extraVals = {};
+function renderExtras() {
+  extraBox.querySelectorAll("[data-x]").forEach(el => { extraVals[el.dataset.x] = el.value; });
+  const list = EXTRAS[document.getElementById("f-topic").value] || [];
+  extraBox.innerHTML = list.map(x => {
+    const id = "x-" + x.id, cur = extraVals[x.id] || "";
+    const ctl = x.opts
+      ? `<select id="${id}" data-x="${x.id}"><option value="">${esc(t("form.undecided"))}</option>${x.opts.map(k => `<option value="${k}"${cur === k ? " selected" : ""}>${esc(t(k))}</option>`).join("")}</select>`
+      : `<input id="${id}" data-x="${x.id}"${x.type === "number" ? ' type="number" min="1" max="50" inputmode="numeric"' : ""} placeholder="${esc(x.ph ? t(x.ph) : "")}" value="${esc(cur)}">`;
+    return `<div class="field"><label for="${id}">${esc(t(x.l))}</label>${ctl}</div>`;
+  }).join("");
+}
+document.getElementById("f-topic").addEventListener("change", renderExtras);
+
+function setErr(id, bad) {
+  document.getElementById("e-" + id).textContent = bad ? t("form.err." + id) : "";
+  document.getElementById("f-" + id).setAttribute("aria-invalid", bad ? "true" : "false");
+}
+
+form.addEventListener("submit", async e => {
   e.preventDefault();
-  const f = e.target;
-  const name = f.name.value.trim(), email = f.email.value.trim();
-  const note = document.getElementById("form-note");
-  if (!name || !/^\S+@\S+\.\S+$/.test(email)) {
-    note.className = "form-note";
-    note.textContent = t("form.err");
-    return;
+  const f = e.target, note = document.getElementById("form-note"), btn = f.querySelector('button[type="submit"]');
+  const name = f.name.value.trim(), email = f.email.value.trim(), phone = f.phone.value.trim();
+  const bad = { name: !name, email: !/^\S+@\S+\.\S+$/.test(email), consent: !f.consent.checked };
+  Object.keys(bad).forEach(k => setErr(k, bad[k]));
+  if (bad.name || bad.email || bad.consent) { f.querySelector('[aria-invalid="true"]').focus(); return; }
+  if (f._gotcha.value) return; // bots fill the hidden field
+
+  const topic = f.topic.options[f.topic.selectedIndex].text;
+  const island = f.island.value || t("form.undecided");
+  const text = f.message.value.trim();
+  const details = [...extraBox.querySelectorAll("[data-x]")].map(el => {
+    const v = el.tagName === "SELECT" ? (el.value ? el.options[el.selectedIndex].text : "") : el.value.trim();
+    return v ? `${el.labels[0].textContent}: ${v}` : "";
+  }).filter(Boolean).join("\n");
+  const msg = t("wa.msg", { name: name + (phone ? ` (${phone})` : ""), email, topic, island, msg: (details ? details + "\n\n" : "") + text }) + `\n[${lang.toUpperCase()}]`;
+  const clean = msg.replace(/\n{3,}/g, "\n\n");
+  const waLink = `https://wa.me/${WA}?text=${encodeURIComponent(clean)}`;
+  const mailLink = `mailto:${EMAIL}?subject=${encodeURIComponent("Sun Vibes Kapverden: " + topic)}&body=${encodeURIComponent(clean)}`;
+  const links = `<span class="hero-ctas"><a class="btn btn-sun" href="${waLink}" target="_blank" rel="noopener">${esc(t("form.wa"))}</a><a class="btn btn-ghost" href="${mailLink}">${esc(t("form.mail"))}</a></span>`;
+  const show = (cls, html) => { note.className = cls; note.innerHTML = html; };
+
+  if (FORM_ENDPOINT) {
+    btn.disabled = true;
+    show("form-note", esc(t("form.sending")));
+    try {
+      const r = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ name, email, phone, topic, island, details, message: text, language: lang })
+      });
+      if (!r.ok) throw new Error(r.status);
+      show("form-ok", `<span>${esc(t("form.sent", { name, email }))}</span><a class="btn btn-ghost" href="${waLink}" target="_blank" rel="noopener">${esc(t("form.sent.wa"))}</a>`);
+      f.reset();
+      Object.keys(extraVals).forEach(k => delete extraVals[k]);
+      extraBox.innerHTML = "";
+      renderExtras();
+    } catch (err) {
+      show("form-ok", `<span>${esc(t("form.fail"))}</span>${links}`);
+    }
+    btn.disabled = false;
+  } else {
+    window.open(waLink, "_blank", "noopener"); // one click: opens WhatsApp with the message ready
+    show("form-ok", `<span>${esc(t("form.ok", { name, email: EMAIL }))}</span>${links}`);
   }
-  const msg = t("wa.msg", {
-    name, email,
-    topic: f.topic.options[f.topic.selectedIndex].text,
-    island: f.island.value || t("form.undecided"),
-    msg: f.message.value.trim()
-  });
-  note.className = "form-ok";
-  note.innerHTML = `<span>${esc(t("form.ok", { name, email: EMAIL }))}</span>
-    <a class="btn btn-sun" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">${esc(t("form.wa"))}</a>`;
 });
 
 // Start language: saved choice, else browser language, else German
